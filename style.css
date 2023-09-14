@@ -175,9 +175,9 @@ h1{
   font-weight: bold;
 }
 
-@media screen and (max-width: 595px) {
+@media screen and (max-width: 495px) {
   #app {
-    width: min(100%, 450px);
+    width: 400px;
   }
 }
 .toast {
