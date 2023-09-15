@@ -4,10 +4,9 @@ import { Questions } from './questions'
 
 const app = document.querySelector("#app")
 console.log(app)
-const colors = ["white", "#e2e8f0", "#bbf7d0"]
+const colors = ["white", "#e2e8f0", "#bcb8b8"]
 
 let i = 0
-const timeout = 5000
 
 
 setInterval(() => {
@@ -48,6 +47,8 @@ function startQuiz(event) {
       finishMessage()
       return;
     }
+    const scoreAf = scoreAffiche(score, Questions.length)
+    app.appendChild(scoreAf)
     
     TimerQuestion(() => {
       currentQuestion++
@@ -72,8 +73,18 @@ function startQuiz(event) {
     h2.innerText = "Bravo! T'as terminé l'interrogation"
     const p = document.createElement("p")
     p.innerText =`T'as eu ${score} / ${Questions.length}`
+
+    const button = document.createElement("button");
+    button.innerText = "Retour";
+
+    button.addEventListener("click", function() {
+      // Rediriger l'utilisateur vers la page d'accueil
+      window.location.href = "/quiz-info/";
+    })
+
     app.appendChild(h2)
     app.appendChild(p)
+    app.appendChild(button)
   }
 
   function submit() {
@@ -89,10 +100,7 @@ function startQuiz(event) {
       score++
     }
     showFeedback(isCorrect, question.correct, value)
-    showNextQuestion(() => {
-      currentQuestion++
-      displayQuestion(currentQuestion)
-    })
+    showNextQuestion()
 
 
     const feedback = getMessage(isCorrect, question.correct)
@@ -117,38 +125,11 @@ function startQuiz(event) {
 
 }
 
-function showNextQuestion(callback) {
-    
-  let modifTimeout = timeout
- 
+function showNextQuestion() {
+
   app.querySelector("button").remove()
 
-  const getBtnText = () => `Suivant (${modifTimeout / 1000}s)`
 
-  const nextBtn = document.createElement("button")
-  nextBtn.innerText = getBtnText()
-
-  app.appendChild(nextBtn)
-
-  const interval = setInterval(() => {
-    modifTimeout -= 1000
-    nextBtn.innerText = getBtnText()
-  }, 1000)
-
-  const time = setTimeout(() => {
-    handleNextQuestion()
-  }, timeout)
-
-  const handleNextQuestion = () => {
-    clearInterval(interval)
-    clearTimeout(time)
-    callback()
-  }
-
-  
-  nextBtn.addEventListener("click", () => {
-    handleNextQuestion()
-  })
 }
 
 function getTitleElement(text) {
@@ -246,7 +227,7 @@ function disableAllReponse() {
 }
 
 function TimerQuestion(callback){
-  let changeTimer = 10000
+  let changeTimer = 5000
   const getBtnText = () => `${changeTimer / 1000}s`
   const h1 = document.createElement("h1")
   h1.innerText = getBtnText()
@@ -260,7 +241,7 @@ function TimerQuestion(callback){
 
   const time = setTimeout(() => {
     handleNextQuestion()
-  }, 10000)
+  }, 5000)
 
   const handleNextQuestion = () => {
     clearInterval(interval)
@@ -268,6 +249,11 @@ function TimerQuestion(callback){
     callback()
   }
   
-
+ 
 }
 
+function scoreAffiche(s,t) {
+  const h4 = document.createElement("h4")
+  h4.innerText =`${s} / ${t}`
+  return h4
+}

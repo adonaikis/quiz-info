@@ -176,10 +176,12 @@ h1{
 }
 
 @media screen and (max-width: 495px) {
-  #app {
-    width: 400px;
+  #app{
+    width: min(90%, 400px)
   }
 }
+
+
 .toast {
   position: fixed;
   top: 20px;
@@ -196,4 +198,29 @@ h2{
 }
 p{
   text-align: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 25px;
+  background: rgb(37, 37, 37) transparent !important;
+  opacity: 0.8;
+  background-size: cover;
+  margin: 2px 8px;
+  padding: 2px 5px;
+  width: 150px;
+  color: rgb(0, 0, 0);
+  margin-left: 150px;
+  font: 50;
+}
+
+h4{
+  text-align: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 25px;
+  background: rgb(71, 71, 71) !important;
+  opacity: 0.8;
+  background-size: cover;
+  margin: 1px 5px;
+  padding: 1px 3px;
+  width: 60px;
+  color: floralwhite;
+  
 }
