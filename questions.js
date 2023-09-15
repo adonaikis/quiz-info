@@ -1,6 +1,6 @@
 export const Questions = [
     {
-      question: 'Comment appelle t-on le compolateur de code java ?',
+      question: 'Comment appelle t-on le compilateur de code java ?',
       answers: ['javac', 'jdk', 'sdk'],
       correct: 'javac',
     },

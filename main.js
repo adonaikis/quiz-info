@@ -227,7 +227,7 @@ function disableAllReponse() {
 }
 
 function TimerQuestion(callback){
-  let changeTimer = 5000
+  let changeTimer = 10000
   const getBtnText = () => `${changeTimer / 1000}s`
   const h1 = document.createElement("h1")
   h1.innerText = getBtnText()
@@ -241,7 +241,7 @@ function TimerQuestion(callback){
 
   const time = setTimeout(() => {
     handleNextQuestion()
-  }, 5000)
+  }, 10000)
 
   const handleNextQuestion = () => {
     clearInterval(interval)
