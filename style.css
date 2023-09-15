@@ -199,16 +199,9 @@ h2{
 p{
   text-align: center;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border-radius: 25px;
-  background: rgb(37, 37, 37) transparent !important;
-  opacity: 0.8;
-  background-size: cover;
   margin: 2px 8px;
   padding: 2px 5px;
-  width: 150px;
-  color: rgb(0, 0, 0);
-  margin-left: 150px;
-  font: 50;
+  font: 100;
 }
 
 h4{
