@@ -3,20 +3,6 @@ import { Questions } from './questions'
 
 
 const app = document.querySelector("#app")
-console.log(app)
-const colors = ["white", "#e2e8f0", "#bcb8b8"]
-
-let i = 0
-
-
-setInterval(() => {
-  app.style.background = colors[i]
-  i++
-  if (i > colors.length - 1){
-    i=0;
-  }
-}, 1000)
-
 
 const startButton = document.querySelector("#start")
 
@@ -100,11 +86,11 @@ function startQuiz(event) {
       score++
     }
     showFeedback(isCorrect, question.correct, value)
-    showNextQuestion()
-
 
     const feedback = getMessage(isCorrect, question.correct)
     app.appendChild(feedback)
+
+    showNextQuestion()
 
   }
 
@@ -126,9 +112,8 @@ function startQuiz(event) {
 }
 
 function showNextQuestion() {
-
+ 
   app.querySelector("button").remove()
-
 
 }
 
@@ -227,6 +212,7 @@ function disableAllReponse() {
 }
 
 function TimerQuestion(callback){
+  
   let changeTimer = 10000
   const getBtnText = () => `${changeTimer / 1000}s`
   const h1 = document.createElement("h1")
